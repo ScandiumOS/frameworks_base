@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2022 Nusantara Project
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <!-- Whether to cleanup fingerprints upon connection to the daemon and when user switches -->
+    <bool name="config_cleanupUnusedFingerprints">true</bool>
+
+    <!-- Whether to cancel fingerprint operation if not idle -->
+    <bool name="config_fpCancelIfNotIdle">false</bool>
+
+
+    <!-- The list of vendor package signatures that should also be considered
+         platform signatures, specifically for use on devices with a vendor partition. -->
+    <string-array name="config_vendorPlatformSignatures">
+    </string-array>
+
+    <!-- Hardware 'face' keys present on the device, stored as a bit field.
+         This integer should equal the sum of the corresponding value for each
+         of the following keys present:
+          1 - Home
+          2 - Back
+          4 - Menu
+          8 - Assistant (search)
+          16 - App switch
+          32 - Camera
+       For example, a device with Back, Home and AppSwitch keys would set this
+       config to 19. -->
+    <integer name="config_deviceHardwareKeys">0</integer>
+
+    <!-- Control the behavior when the user long presses or double taps one of the below keys.
+          0 - Nothing
+          1 - Menu key
+          2 - Recents
+          3 - Assistant
+          4 - Voice search
+          5 - Last app
+          6 - Flashlight
+          7 - Clear notifications
+          8 - Volume panel
+          9 - Screen off
+          10 - Ringer modes
+          11 - Screenshot full
+          12 - Partial screenshot
+       This needs to match the constants in
+       services/core/java/com/android/server/policy/PhoneWindowManager.java -->
+    <integer name="config_longPressOnHomeKeyBehavior">0</integer>
+    <integer name="config_doubleTapOnHomeKeyBehavior">0</integer>
+    <integer name="config_longPressOnMenuKeyBehavior">0</integer>
+    <integer name="config_doubleTapOnMenuKeyBehavior">0</integer>
+    <integer name="config_longPressOnBackKeyBehavior">0</integer>
+    <integer name="config_doubleTapOnBackKeyBehavior">0</integer>
+    <integer name="config_longPressOnAssistKeyBehavior">0</integer>
+    <integer name="config_doubleTapOnAssistKeyBehavior">0</integer>
+    <integer name="config_longPressOnAppSwitchKeyBehavior">0</integer>
+    <integer name="config_doubleTapOnAppSwitchKeyBehavior">0</integer>
+    <integer name="config_longPressOnCameraKeyBehavior">0</integer>
+    <integer name="config_doubleTapOnCameraKeyBehavior">0</integer>
+
+    <!-- The list of components which should be automatically disabled for a specific device.
+     Note: this MUST not be used to randomly disable components, ask for approval first! -->
+    <string-array name="config_deviceDisabledComponents" translatable="false" />
+
+    <!-- The list of components which should be automatically disabled for all devices. -->
+    <string-array name="config_globallyDisabledComponents" translatable="false" />
+
+    <!-- The list of components which should be forced to be enabled. -->
+    <string-array name="config_forceEnabledComponents" translatable="false" />
+
+    <!-- Paths to the libraries that contain device specific key handlers -->
+    <string-array name="config_deviceKeyHandlerLibs" translatable="false">
+    </string-array>
+
+    <!-- Names of the key handler classes -->
+    <string-array name="config_deviceKeyHandlerClasses" translatable="false">
+    </string-array>
+
+    <!-- Default value for proximity check on screen wake
+     NOTE ! - Enable for devices that have a fast response proximity sensor (ideally < 300ms)-->
+    <bool name="config_proximityCheckOnWake">false</bool>
+    <integer name="config_proximityCheckTimeout">250</integer>
+    <bool name="config_proximityCheckOnWakeEnabledByDefault">false</bool>
+
+    <!-- List of system apps that are allowed to be locked with app lock.
+          Use with extreme caution. -->
+    <string-array name="config_appLockAllowedSystemApps" translatable="false" />
+
+    <!-- The list of package IDs that are allowed to use aux cameras.
+         NOTE: If this list is empty then all apps will be able to use aux cameras. -->
+    <string-array name="config_cameraAuxPackageAllowList" translatable="false" />
+
+    <!-- The list of package IDs that are not allowed to use aux cameras. -->
+    <string-array name="config_cameraAuxPackageExcludeList" translatable="false" />
+
+    <!-- Array containing custom error messages from vendor. -->
+    <string-array name="face_error_vendor" translatable="false">
+        <item>@string/face_unlock_disabled_idle</item>
+    </string-array>
+
+    <!-- Enable face auth only when swiping security view -->
+    <bool name="config_faceAuthOnlyOnSecurityView">false</bool>
+
+    <!-- Whether devices suports in-display fingerprint when screen is off -->
+    <bool name="config_supportsScreenOffUdfps">false</bool>
+</resources>
